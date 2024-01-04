@@ -1,0 +1,34 @@
+import pygame
+pygame.init
+
+screen = pygame.display.set_mode((800, 800))
+pygame.display.set_caption("Pineapple!")
+mousePos = (400,400)
+
+while True:
+        event = pygame.event.wait()
+        if event.type == pygame.MOUSEMOTION:
+            mousePos = event.pos
+        print(mousePos) #this will print out the mouse posittion to help you place the shapes
+        
+        #fruit body----------------------------------------------------
+        pygame.draw.ellipse(screen, (235, 247, 10), (103, 257, 302, 486))
+        
+        #criss-cross lines---------------------------------------------
+        for i in range (-50, 50, 20):
+            pygame.draw.line(screen, (0, 0, 0), (i,0), (i+100, 100), 4)
+            
+        for i in range(-100, 200, 10):
+            pygame.draw.line(screen, (0, 0, 0), (0, i+100), (100, i), 4)
+            
+        #top leaf triangles
+        pygame.draw.polygon(screen, (24, 168, 43), ((147,165), (145,257), (204,254)))
+        pygame.draw.polygon(screen, (24, 168, 43), ((220,254), (216,160), (264,255)))
+        pygame.draw.polygon(screen, (24, 168, 43), ((284,254), (285,161), (333,253)))
+        
+        pygame.display.flip()
+        
+        
+        
+        
+        
